@@ -1,0 +1,32 @@
+body
+{
+    background-color: lightblue;
+    color: maroon;
+    font-family: Arial;
+    margin: 0px;
+
+}
+header
+{
+    background-color: plum;
+    color: rgb(8, 2, 117);
+    font-family: Arial;
+    margin: 0px;
+    
+}
+main
+{
+    background-color: pink;
+    color: rgb(55, 0, 92);
+    font-family: Arial;
+    margin: 0px;
+    
+}
+footer
+{
+    background-color: lightblue;
+    color: maroon;
+    font-family: Arial;
+    margin: 0px;
+    
+}
