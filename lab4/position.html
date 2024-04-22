@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Екатерина Дмитриевна Репьюк. Лабораторная работа 4</title>
+    <link rel = "stylesheet" href= "../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        div{
+            width: 300px;
+            height: 70px;
+            line-height:70px;
+            text-align: center;
+            background-color: white;
+            border: 1px dotted darkgreen;
+            margin: 15px;
+        }
+        .position-relative{
+            position: relative;
+            left: 140px;
+            top: -130px;
+            z-index:-1;
+        }
+        .position-relative:hover{
+            z-index:1;
+        }
+        .ez{
+            width: 0px;
+            height: 0px;
+            border: 0px;
+            
+        }
+        .pos-abs{
+            position: absolute;
+            left: 350px;
+            top: 505px;
+        }
+        .pos-abs:hover{
+            line-height:100px;
+            text-align: center;
+            height: 100px;
+            width: 350px;
+            background-color: rgb(147, 147, 185);
+            box-shadow: 4px 4px 8px 15px rgba(0, 145, 255, 0.2);
+        }
+    </style>
+
+</head>
+
+
+<body>
+    
+    <header>
+
+        НГТУ, ФБ, Лабораторная 4
+    </header>
+
+
+    <main>
+        <div class="ez">
+        <div>static</div>
+        <div>static</div>
+        <div class="position-relative">relative</div>
+        <div>static</div>
+        <div>static</div>
+        <div class="pos-abs">absolute</div>
+        <div>static</div>
+        <div>static</div>
+        <div>static</div>
+        <div>static</div>
+        </div>
+    </main>
+
+    <footer>
+        &copy; Репьюк Екатерина, ФБИ-22, 2 курс, 2024
+    </footer>
+
+</body>
+</html>
