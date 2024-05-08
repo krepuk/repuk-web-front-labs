@@ -26,6 +26,13 @@
                 margin-top: 40px;
                 margin-left: 10px;
             }
+            .butn2{
+                position: relative;
+                left: -50px;
+                top: -81px;
+                margin-top: 40px;
+                margin-left: 10px;
+            }
             .input{
                 position: absolute;
                 left: 650px;
@@ -106,13 +113,15 @@
                             </div>
                             <div class="butn">
                                 <input type="button" value="Расчитать" onclick="showSum()"> 
-                                <div id="output"></div>
+
                             </div>
                             <div>
-                                <input id="btn2" class="input" type="reset" value="очистить" onclick="clearShow()">
+                                <input id="btn2" class="butn2" type="reset" value="Очистить" onclick="clearShow()">
                             </div>
                         </div>
                     </div>
+                    
+                    <div id="output"></div>
                 </main>
                 <footer>
                     </hr>
