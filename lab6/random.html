@@ -8,13 +8,28 @@
     <link rel="icon" href="../favicon-32x32.png">
     <style>
         .game {
-            border: 2px solid #000; /* Рамка */
-            border-radius: 10px; /* Скругление углов */
-            width: 300px; /* Ширина блока */
-            padding: 20px; /* Внутренние отступы */
-            margin: 10px auto; /* Внешние отступы, блок будет по центру */
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Тень */
-            text-align: center; /* Выравнивание текста по центру */
+            border: 2px solid #000; 
+            border-radius: 10px; 
+            width: 300px; 
+            padding: 20px; 
+            margin: 10px auto; 
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+            text-align: center; 
+        }
+        .help-block {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #b5d0e4;
+            border-radius: 5px;
+            background-color: #a1ffa6;
+            text-align: left;
+        }
+        .help-button {
+            margin-bottom: 10px;
+        }
+        .rules {
+            display: none;
+            margin-top: 10px;
         }
     </style>
     <script>
@@ -31,13 +46,11 @@
             let userNumber = parseInt(input.value);
             let message = document.getElementById('result');
 
-            // Проверка на пустое поле или нечисловое значение
             if (isNaN(userNumber)) {
                 message.innerHTML = 'Пожалуйста, введите число!';
                 return;
             }
 
-            // Проверка на диапазон числа
             if (userNumber < 1 || userNumber > 100) {
                 message.innerHTML = 'Число должно быть в диапазоне от 1 до 100!';
                 return;
@@ -64,6 +77,19 @@
             number = Math.floor(Math.random() * 100) + 1;
             count = 0;
             document.getElementById('result').innerHTML = '';
+        }
+        function showRules() {
+            let helpBlock = document.querySelector('.help-block');
+            let showButton = helpBlock.querySelector('.help-button');
+            let rules = helpBlock.querySelector('.rules');
+
+            if (showButton.textContent === 'показать правила игры') {
+                showButton.textContent = 'скрыть правила игры';
+                rules.style.display = 'block';
+            } else {
+                showButton.textContent = 'показать правила игры';
+                rules.style.display = 'none';
+            }
         }
     </script>
 </head>
@@ -97,6 +123,18 @@
             </div>
             <div>
                 <button onclick="again()">Сыграть еще раз</button>
+            </div>
+        </div>
+        <div class="help-block">
+            <button class="help-button" onclick="showRules()">показать правила игры</button>
+            <div class="rules">
+                <ol>
+                    <li>Игра заключается в угадывании загаданного компьютером числа от 1 до 100.</li>
+                    <li>Пользователь вводит предполагаемое число в поле ввода и нажимает кнопку "Угадать".</li>
+                    <li>Компьютер сравнивает введенное число с загаданным и сообщает, больше или меньше введенное число.</li>
+                    <li>Игра продолжается до тех пор, пока пользователь не угадает загаданное число.</li>
+                    <li>После угадывания числа отображается количество попыток, и пользователь может начать новую игру.</li>
+                </ol>
             </div>
         </div>
     </main>
