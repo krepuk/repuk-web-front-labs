@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Репьюк Екатерина Дмитриевна. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        .game {
+            border: 2px solid #000; /* Рамка */
+            border-radius: 10px; /* Скругление углов */
+            width: 300px; /* Ширина блока */
+            padding: 20px; /* Внутренние отступы */
+            margin: 10px auto; /* Внешние отступы, блок будет по центру */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Тень */
+            text-align: center; /* Выравнивание текста по центру */
+        }
+    </style>
+    <script>
+        let number;
+        let count = 0;
+        function startGame() {
+            number = Math.floor(Math.random() * 100) + 1;
+            let screens = document.getElementsByClassName('game');
+            screens[0].style.display = 'none';
+            screens[1].style.display = 'block';
+        }
+        function guess() {
+            let input = document.getElementById('user-number');
+            let userNumber = parseInt(input.value);
+            let message = document.getElementById('result');
+
+            // Проверка на пустое поле или нечисловое значение
+            if (isNaN(userNumber)) {
+                message.innerHTML = 'Пожалуйста, введите число!';
+                return;
+            }
+
+            // Проверка на диапазон числа
+            if (userNumber < 1 || userNumber > 100) {
+                message.innerHTML = 'Число должно быть в диапазоне от 1 до 100!';
+                return;
+            }
+
+            count++;
+            if (userNumber > number) {
+                message.innerHTML = 'Вы ввели слишком большое число';
+            } else if (userNumber < number) {
+                message.innerHTML = 'Вы ввели слишком маленькое число';
+            } else {
+                let screens = document.getElementsByClassName('game');
+                screens[1].style.display = 'none';
+                screens[2].style.display = 'block';
+                let displayNumber = document.getElementById('number');
+                displayNumber.innerHTML = number;
+                document.getElementById('try-count').innerHTML = count;
+            }
+        }
+        function again() {
+            let screens = document.getElementsByClassName('game');
+            screens[2].style.display = 'none';
+            screens[1].style.display = 'block';
+            number = Math.floor(Math.random() * 100) + 1;
+            count = 0;
+            document.getElementById('result').innerHTML = '';
+        }
+    </script>
+</head>
+
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 5
+    </header>
+    <main>
+        <div class="game">
+            <button onclick="startGame()">
+                Сыграть в игру
+            </button>
+        </div>
+        <div class="game" style="display: none;">
+            <h1>Угадай число!</h1>
+            <div>
+                Задумано число от 1 до 100. Угадайте, какое?<br>
+                <input type="number" value="" min="1" max="100" id="user-number"><br>
+                <button onclick="guess()">Угадать</button>
+                <div id="result"></div>
+            </div>
+        </div>
+        <div class="game" style="display: none;">
+            <h1>Поздравляем, вы выиграли!</h1>
+            <div>
+                Задуманное число: <span id="number"></span>
+            </div>
+            <div>
+                Количество попыток: <span id="try-count"></span>
+            </div>
+            <div>
+                <button onclick="again()">Сыграть еще раз</button>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; Репьюк Екатерина ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
