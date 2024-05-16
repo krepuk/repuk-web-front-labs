@@ -1,0 +1,66 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>Репьюк Екатерина Дмитриевна. Лабораторная 6</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../favicon-16x16.png">
+        <link rel="icon" href="../favicon-32x32.png">
+        <style>
+            .color-block {
+                width: 200px;
+                height: 200px;
+                border: 1px solid #000;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                font-size: 20px;
+                user-select: none; /* Отключаем выделение текста */
+                cursor: grab; /* Устанавливаем курсор "ладошка" */
+                transition: background-color 0.5s ease, color 0.5s ease; /* Плавное изменение цвета */
+            }
+        </style>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 6
+        </header>
+        <main>
+            <div id="colorBlock" class="color-block" ondblclick="changeColor(this)">
+                <div>
+                    Цвет: <span id="color-name">желтый</span>
+                </div>
+                <div>
+                    Сделайте двойной щелчок, чтобы сменить.
+                </div>
+            </div>
+            <script>
+                function changeColor(div) {
+                    const colors = ['yellow', 'red', 'blue', 'green', 'purple'];
+                    const colorNames = ['желтый', 'красный', 'голубой', 'зеленый', 'фиолетовый'];
+                    const currentColorIndex = colors.indexOf(div.style.backgroundColor);
+                    let nextColorIndex;
+    
+                    if (currentColorIndex === colors.length - 1) {
+                        nextColorIndex = 0;
+                    } else {
+                        nextColorIndex = currentColorIndex + 1;
+                    }
+    
+                    div.style.backgroundColor = colors[nextColorIndex];
+                    document.getElementById('color-name').innerHTML = colorNames[nextColorIndex];
+    
+                    if (colors[nextColorIndex] === 'yellow' || colors[nextColorIndex] === 'green') {
+                        div.style.color = 'black';
+                    } else {
+                        div.style.color = 'white';
+                    }
+                }
+            </script>
+        </main>
+        <footer>
+            &copy; Репьюк Екатерина ФБИ-22, 2 курс, 2024
+        </footer>
+    </body>
+    </html>
