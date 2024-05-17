@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Репьюк Екатерина Дмитриевна. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        #wear {
+            width: 200px; 
+            height: 200px; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 6
+    </header>
+    <main>
+        <script>
+            function filter() {
+                let color = document.getElementById('wear-color').value;
+                let type = document.getElementById('wear-type').value;
+                let wear = document.getElementById('wear');
+                
+                if(color == 'Красный' && type == 'Футболка'){
+                    wear.src = 'redf.jpg';
+                } else if(color == 'Белый' && type == 'Футболка'){
+                    wear.src = 'whitef.jpg';
+                } else if(color == 'Черный' && type == 'Футболка'){
+                    wear.src = 'blackf.jpg';
+                } else if(color == 'Красный' && type == 'Майка'){
+                    wear.src = 'redm.jpg';
+                } else if(color == 'Белый' && type == 'Майка'){
+                    wear.src = 'whitem.jpg';
+                } else if(color == 'Черный' && type == 'Майка'){
+                    wear.src = 'blackm.jpg';
+                } else if(color == 'Красный' && type == 'Поло'){
+                    wear.src = 'redpol.jpg';
+                } else if(color == 'Белый' && type == 'Поло'){
+                    wear.src = 'whitepol.jpg';
+                } else if(color == 'Черный' && type == 'Поло'){
+                    wear.src = 'blackpol.jpg';
+                }
+            }
+        </script>
+        <div>
+            Цвет одежды:
+            <select id="wear-color">
+                <option>Красный</option>
+                <option>Белый</option>
+                <option>Черный</option>
+            </select><br>
+            Тип одежды:
+            <select id="wear-type">
+                <option>Футболка</option>
+                <option>Поло</option>
+                <option>Майка</option>
+            </select><br>
+            <button onclick="filter()">OK</button><br>
+            <img id="wear" src="">
+        </div>
+    </main>
+    <footer>
+        &copy; Репьюк Екатерина ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
