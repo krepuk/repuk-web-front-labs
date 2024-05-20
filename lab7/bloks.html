@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Репьюк Екатерина Дмитриевна. Лабораторная 6</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <script>
+        function addNewBlock(){
+            let newBlock = document.createElement('div');
+            newBlock.style.backgroundColor = 'violet';
+            newBlock.style.height = '40px';
+            newBlock.style.border = '1px solid black';
+            newBlock.style.margin = '10px';
+            document.querySelector('main').appendChild(newBlock);
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+    <main>
+        <div style="background-color: blueviolet; height: 20px;"></div>
+        <button onclick="addNewBlock()">Добавление блока</button>
+    </main>
+    <footer>
+        &copy; Репьюк Екатерина ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
