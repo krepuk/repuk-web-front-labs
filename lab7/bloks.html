@@ -18,18 +18,29 @@
         function addNewBlocks(){
             let main = document.querySelector('main');
             let numberOfBlocks = parseInt(document.getElementById('numberOfBlocks').value);
-            let initialWidth = 150; // Начальная ширина блока
+            let initialWidth = 150; 
             for (let i = 0; i < numberOfBlocks; i++){
                 let newBlock = document.createElement('div');
                 newBlock.style.backgroundColor = 'violet';
                 newBlock.style.height = '40px';
                 newBlock.style.border = '1px solid black';
                 newBlock.style.margin = '10px';
-                newBlock.style.width = `${initialWidth + i * 20}px`; // Увеличиваем ширину на 20px для каждого нового блока
+                newBlock.style.width = `${initialWidth + i * 20}px`; 
                 newBlock.innerHTML = `Блок № ${i+1}: 2*${i}<sup>2</sup> = ${2 * i**2}`;
                 
                 main.appendChild(newBlock);
             }
+        }
+        function add20_50(){
+            let main = document.querySelector('main');
+            for (let i = 20; i<=50; i+=2.5){
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = 'grey';
+                newBlock.style.width = '40px';
+                newBlock.style.border = '1px solid';
+                newBlock.innerHTML = `${i}`;
+                main.appendChild(newBlock);
+            }        
         }
     </script>
 </head>
@@ -42,6 +53,7 @@
         <input type="number" id="numberOfBlocks" placeholder="Введите количество блоков">
         <button onclick="addNewBlock()">Добавление блока</button>
         <button onclick="addNewBlocks()">Добавить блоки</button>
+        <button onclick="add20_50()">20=>50</button>
     </main>
     <footer>
         &copy; Репьюк Екатерина ФБИ-22, 2 курс, 2024
