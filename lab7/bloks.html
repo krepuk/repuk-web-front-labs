@@ -53,9 +53,9 @@
                 circle.style.backgroundColor = 'white';
                 circle.style.display = 'inline-block';
                 circle.style.marginRight = '5px';
-                circle.innerHTML = counter;
                 circle.style.textAlign = 'center';
-                circle.style.lineHeight = '30px';
+                circle.style.lineHeight = '20px';
+                circle.innerHTML = counter;
                 main.appendChild(circle);
                 counter -= 3;
             }
@@ -64,13 +64,35 @@
             let main = document.querySelector('main');
             for (let i = 0; i < 10; i++) {
                 let block = document.createElement('div');
-                block.style.backgroundColor = 'lightblue';
+                block.style.backgroundColor = 'lightgrey';
                 block.style.height = '40px';
                 block.style.border = '1px solid black';
                 block.style.margin = '10px';
-                block.style.opacity = `${i * 0.1}`; // Увеличиваем прозрачность от 0 до 1
+                block.style.opacity = `${i * 0.1}`;
                 block.innerHTML = i + 1;
                 main.appendChild(block);
+            }
+        }
+        function addColorfulCircles() {
+            let main = document.querySelector('main');
+            let numberOfCircles = parseInt(document.getElementById('numberOfCircles').value);
+            for (let i = numberOfCircles; i > 0; i--) {
+                let circle = document.createElement('div');
+                circle.style.width = '40px';
+                circle.style.height = '40px';
+                circle.style.borderRadius = '50%';
+                circle.style.display = 'inline-block';
+                circle.style.marginRight = '5px';
+                circle.style.textAlign = 'center';
+                circle.style.lineHeight = '40px';
+                circle.style.fontSize = '14px';
+                circle.innerHTML = i;
+                if (i % 2 === 0) {
+                    circle.style.backgroundColor = 'green';
+                } else {
+                    circle.style.backgroundColor = 'red';
+                }
+                main.appendChild(circle);
             }
         }
     </script>
@@ -82,11 +104,13 @@
     <main>
         <div style="background-color: blueviolet; height: 20px;"></div>
         <input type="number" id="numberOfBlocks" placeholder="Введите количество блоков">
+        <input type="number" id="numberOfCircles" placeholder="Введите количество кругов">
         <button onclick="addNewBlock()">Добавление блока</button>
         <button onclick="addNewBlocks()">Добавить блоки</button>
         <button onclick="add20_50()">20=>50</button>
         <button onclick="addCirclesWithCounter()">10 => -80</button>
-        <button onclick="addBlocksWithOpacity()">Прозрачные блоки</button>
+        <button onclick="addBlocksWithOpacity()">Блоки с прозрачностью</button>
+        <button onclick="addColorfulCircles()">Цветные круги</button>
     </main>
     <footer>
         &copy; Репьюк Екатерина ФБИ-22, 2 курс, 2024
