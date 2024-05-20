@@ -42,6 +42,24 @@
                 main.appendChild(newBlock);
             }        
         }
+        function addCirclesWithCounter() {
+            let main = document.querySelector('main');
+            let counter = 10;
+            while (counter >= -80) {
+                let circle = document.createElement('div');
+                circle.style.width = '30px';
+                circle.style.height = '30px';
+                circle.style.borderRadius = '50%';
+                circle.style.backgroundColor = 'white';
+                circle.style.display = 'inline-block';
+                circle.style.marginRight = '5px';
+                circle.innerHTML = counter;
+                circle.style.textAlign = 'center';
+                circle.style.lineHeight = '30px';
+                main.appendChild(circle);
+                counter -= 3;
+            }
+        }
     </script>
 </head>
 <body>
@@ -54,6 +72,7 @@
         <button onclick="addNewBlock()">Добавление блока</button>
         <button onclick="addNewBlocks()">Добавить блоки</button>
         <button onclick="add20_50()">20=>50</button>
+        <button onclick="addCirclesWithCounter()">10 => -80</button>
     </main>
     <footer>
         &copy; Репьюк Екатерина ФБИ-22, 2 курс, 2024
