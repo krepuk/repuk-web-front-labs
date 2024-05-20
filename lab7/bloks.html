@@ -15,6 +15,22 @@
             newBlock.style.margin = '10px';
             document.querySelector('main').appendChild(newBlock);
         }
+        function addNewBlocks(){
+            let main = document.querySelector('main');
+            let numberOfBlocks = parseInt(document.getElementById('numberOfBlocks').value);
+            let initialWidth = 150; // Начальная ширина блока
+            for (let i = 0; i < numberOfBlocks; i++){
+                let newBlock = document.createElement('div');
+                newBlock.style.backgroundColor = 'violet';
+                newBlock.style.height = '40px';
+                newBlock.style.border = '1px solid black';
+                newBlock.style.margin = '10px';
+                newBlock.style.width = `${initialWidth + i * 20}px`; // Увеличиваем ширину на 20px для каждого нового блока
+                newBlock.innerHTML = `Блок № ${i+1}: 2*${i}<sup>2</sup> = ${2 * i**2}`;
+                
+                main.appendChild(newBlock);
+            }
+        }
     </script>
 </head>
 <body>
@@ -23,7 +39,9 @@
     </header>
     <main>
         <div style="background-color: blueviolet; height: 20px;"></div>
+        <input type="number" id="numberOfBlocks" placeholder="Введите количество блоков">
         <button onclick="addNewBlock()">Добавление блока</button>
+        <button onclick="addNewBlocks()">Добавить блоки</button>
     </main>
     <footer>
         &copy; Репьюк Екатерина ФБИ-22, 2 курс, 2024
