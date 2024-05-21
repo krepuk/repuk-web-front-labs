@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Лабораторная работа 7</title>
+        <link rel="stylesheet" href="../main.css">
+        <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+        <link rel="icon" href="../favicon-16x16.png">
+        <link rel="icon" href="../favicon-32x32.png">
+        <style>
+            table {
+                border-collapse: collapse;
+                width: 100%;
+            }
+            th, td {
+                border: 1px solid black;
+                padding: 8px;
+                text-align: left;
+            }
+            th {
+                background-color: #37ffd4;
+            }
+        </style>
+
+        <script>
+            function showStockPrices() {
+                const dates = [
+                    "11-05-2024", "12-05-2024", "13-05-2024", "14-05-2024", "15-05-2024", "16-05-2024", "17-05-2024", "18-05-2024", "19-05-2024", "20-05-2024", "21-05-2024"            
+                ];
+                const prices = [
+                    922.8, 900.7, 908.2, 857.6, 840.5, 815.4, 812.7, 819, 800.8, 790.4, 790.2 
+                ];
+                let table = document.getElementById('stock-table');
+                for(let i = 0; i < dates.length; i++){
+                    let tr = document.createElement('tr');
+                    let tdDate = document.createElement('td');
+                    let tdPrice = document.createElement('td');
+                    let tdDifference = document.createElement('td');
+                    tdDate.innerText = dates[i];
+                    tdPrice.innerText = prices[i];
+                    if (i > 0) {
+                        let difference = prices[i] - prices[i - 1];
+                        tdDifference.innerText = difference.toFixed(2); // Округление до двух знаков после запятой
+                    } else {
+                        tdDifference.innerText = "-";
+                    }
+                    tr.appendChild(tdDate);
+                    tr.appendChild(tdPrice);
+                    tr.appendChild(tdDifference);
+                    table.appendChild(tr);
+                }
+
+                let sum = 0;
+                let maxPrice = Math.max(...prices);
+                let minPrice = Math.min(...prices);
+                for (let i = 0; i < prices.length; i++){
+                    sum+= prices[i];
+                }
+                let averagePrice = sum / prices.length;
+                averagePrice = averagePrice.toFixed(2);
+
+                document.getElementById('stock-detail').innerText = `Среднее значение: ${averagePrice}\nМаксимальное значение: ${maxPrice}\nМинимальное значение: ${minPrice}`;
+
+                document.querySelector('button[onclick="showStockPrices()"]').style.display = 'none';
+            }
+        </script>
+    </head>
+    <body>
+        <header>
+            НГТУ, ФБ, Лабораторная работа 7
+        </header>
+        <main>
+            <button onclick="showStockPrices()">Курс акций ЕвроМедЦентр</button>
+            <table border="1" id="stock-table"></table>
+            <div id="detail"></div>
+            <div id="stock-detail"></div>
+        </main>
+        <footer>
+            &copy; Репьюк Екатерина ФБИ-22, 2 курс, 2024
+        </footer>
+    </body>
+</html>
