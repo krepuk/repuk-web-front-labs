@@ -12,7 +12,14 @@
             padding: 10px;
             margin: 10px 0;
             font-family: Arial, sans-serif;
-            background-color: #f0f0f0;
+            background-color: #4fedbd;
+        }
+        #weather-info {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: Arial, sans-serif;
+            background-color: #e9619a;
         }
     </style>
     <script>
@@ -40,6 +47,36 @@
                     console.error('Ошибка при получении курса евро:', error);
                 });
         }
+        function getWeather() {
+            const url = 'https://api.open-meteo.com/v1/forecast?latitude=55.0415&longitude=82.9346&hourly=temperature_2m&timezone=Asia%2FBangkok';
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    const currentDate = new Date();
+                    const today8AM = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 8, 0, 0);
+                    const today12PM = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 12, 0, 0);
+                    const today8PM = new Date(currentDate.getFullYear(), currentDate.getMonth(), currentDate.getDate(), 20, 0, 0);
+
+                    const weatherElement = document.getElementById('weather-info');
+                    weatherElement.innerHTML = `
+                        <p><strong>Температура в 8:00:</strong> ${getTemperatureAtTime(data, today8AM)}°C</p>
+                        <p><strong>Температура в 12:00:</strong> ${getTemperatureAtTime(data, today12PM)}°C</p>
+                        <p><strong>Температура в 20:00:</strong> ${getTemperatureAtTime(data, today8PM)}°C</p>
+                    `;
+                })
+                .catch(error => {
+                    console.error('Ошибка при получении погоды:', error);
+                });
+        }
+
+        function getTemperatureAtTime(data, targetTime) {
+            const hourlyData = data.hourly.time.map((time, index) => ({
+                time: new Date(time),
+                temperature: data.hourly.temperature_2m[index]
+            }));
+            const temperatureAtTime = hourlyData.find(entry => entry.time.getTime() === targetTime.getTime());
+            return temperatureAtTime ? temperatureAtTime.temperature : 'Недоступно';
+        }
     </script>
 </head>
 <body>
@@ -49,6 +86,8 @@
     <main>
         <button onclick="getEuroExchangeRate()">Показать курс евро</button>
         <div id="euro-info"></div>
+        <button onclick="getWeather()">Показать погоду</button>
+        <div id="weather-info"></div>
     </main>
     <footer>
         &copy; Репьюк Екатерина ФБИ-22, 2 курс, 2024
