@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Репьюк Екатерина Дмитриевна. Лабораторная 7</title>
+    <link rel="stylesheet" href="../main.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <style>
+        #euro-info {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 10px 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+    </style>
+    <script>
+        function getEuroExchangeRate() {
+            const url = 'https://www.cbr-xml-daily.ru/daily_json.js';
+            fetch(url)
+                .then(response => response.json())
+                .then(json => {
+                    const date = new Date(json.Date);
+                    const previousDate = new Date(json.PreviousDate);
+                    const currentRate = json.Valute.EUR.Value;
+                    const previousRate = json.Valute.EUR.Previous;
+                    const difference = currentRate - previousRate;
+                    const message = difference > 0 ? "Курс евро поднялся" : "Курс евро опустился";
+                    const infoElement = document.getElementById('euro-info');
+                    infoElement.innerHTML = `
+                        <p><strong>Дата запроса:</strong> ${date.toLocaleDateString()}</p>
+                        <p><strong>Курс евро на текущую дату:</strong> ${currentRate.toFixed(2)}</p>
+                        <p><strong>Курс евро на предыдущую дату:</strong> ${previousRate.toFixed(2)}</p>
+                        <p><strong>Разница:</strong> ${difference.toFixed(2)}</p>
+                        <p>${message}</p>
+                    `;
+                })
+                .catch(error => {
+                    console.error('Ошибка при получении курса евро:', error);
+                });
+        }
+    </script>
+</head>
+<body>
+    <header>
+        НГТУ, ФБ, Лабораторная работа 7
+    </header>
+    <main>
+        <button onclick="getEuroExchangeRate()">Показать курс евро</button>
+        <div id="euro-info"></div>
+    </main>
+    <footer>
+        &copy; Репьюк Екатерина ФБИ-22, 2 курс, 2024
+    </footer>
+</body>
+</html>
