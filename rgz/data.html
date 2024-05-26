@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../mainrgz.css">
+    <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../favicon-16x16.png">
+    <link rel="icon" href="../favicon-32x32.png">
+    <title>Новости компании</title>
+    <style>
+        .news-card {
+            border: 1px solid rgb(1, 5, 95);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            background: linear-gradient(rgb(122, 105, 255), rgb(195, 179, 255));
+        }
+        .news-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .news-date {
+            font-size: 18px;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+        .news-preview {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .news-full-text {
+            display: none;
+            margin-top: 10px;
+        }
+        .show-more-btn {
+            display: block;
+            margin-top: 20px; /* Добавлен отступ сверху для кнопки */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        НГТУ ФБ Лабораторная
+    </header>
+    <main>
+        <div class="news-card">
+            <div class="news-title">Заголовок новости 1</div>
+            <div class="news-date">2023-01-01</div>
+            <div class="news-preview">Первые строки новости 1. Это краткое описание новости, которое должно заинтересовать читателя.</div>
+            <button class="show-more-btn">Показать</button>
+            <div class="news-full-text">
+                <p>Полный текст новости 1. Здесь должен быть развернутый текст новости, включая все детали и подробности.</p>
+            </div>
+        </div>
+        <!-- Добавьте аналогичные карточки для остальных новостей -->
+        <div class="news-card">
+            <div class="news-title">Ozon запускает Premium banking</div>
+            <div class="news-date">29.01.2024</div>
+            <div class="news-preview">Маркетплейс Ozon создает на базе Ozon Fintech новое направление бизнеса – Premium banking для физических лиц. В частности, подразделение, которое занимается деятельностью, связанной с финансами и IT, ищет сотрудника на должность Business Lead (Premium banking), следует из информации на сайте сервиса по подбору вакансий для менеджеров Facancy.</div>
+            <button class="show-more-btn">Показать</button>
+            <div class="news-full-text">
+                <p>Этому топ-менеджеру, следует из описания вакансии, предстоит разработать и внедрить стратегию работы premium banking в Ozon, сформулировать продуктовый оффер, а также курировать запуск новых продуктов совместно с кросс-функциональными командами, вести переговоры с ключевыми партнерами, выполнять KPI, в том числе по количеству активных клиентов.
+                    В компании не ответила прямо на запрос Frank Media. В пресс-службе Ozon заявили, что планируют и дальше развивать свое финтех направление, в рамках которого компания планирует предложить рынку «немало востребованных продуктов для разных аудиторий».
+                    Ozon Fintech — это юнит компании Ozon по разработке и развитию новых продуктов и сервисов для физических и юридических лиц, которые связаны с финансами. Сейчас в Ozon Fintech восемь направлений работы: Ozon Банк, программа лояльности для покупателей и продавцов «Ozon Premium», карта для платежей «Ozon Карта», кредитный сервис для покупателей «Ozon Рассрочка», собственная инфраструктура Ozon для совершения платежей, кредитные сервисы для продавцов «Ozon Кредит», сервисы финансирования для селлеров «Ozon Факторинг», а также программы лояльности.
+                    Ozon в июле 2022 года запустил дебетовую карту, которую можно использовать для оплаты покупок не только внутри маркетплейса. Эта карта стала первой самостоятельной картой, выпущенной маркетплейсом.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; Екатерина Репьюк, ФБИ-22, 2 курс, 2024
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const showMoreButtons = document.querySelectorAll('.show-more-btn');
+
+            showMoreButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const fullText = this.parentElement.querySelector('.news-full-text');
+                    fullText.style.display = fullText.style.display === 'none' ? 'block' : 'none';
+                    this.textContent = this.textContent === 'Показать' ? 'Скрыть' : 'Показать';
+                });
+            });
+        });
+    </script>
+</body>
+</html>
