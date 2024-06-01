@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="../rgz/favicon-16x16.png">
+<link rel="icon" href="../rgz/favicon-32x32.png">
+<title>Калькулятор валют</title>
+<style>
+    body, html {
+         height: 100%;
+        margin: 0;
+        height: 1500px;
+    }
+    .menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 200px;
+        height: 100%;
+        background-color: #03175c;
+        color: #fff;
+        font-family: GTEestiPro, sans-serif;
+    }
+    .menu ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    .menu li {
+        padding: 10px;
+        border-bottom: 1px solid #444;
+    }
+    a{color:rgb(255, 255, 255);
+        }
+    header {
+        background-color: #2e51ff;
+        width: 1500px;
+        margin-left: 200px;
+        padding: 20px;
+        color: rgb(255, 255, 255);
+        font-family: GTEestiPro, sans-serif;
+    }
+    footer{
+        background-color: rgb(172, 197, 245);
+        color: rgb(11, 1, 58);
+        font-family: GTEestiPro, sans-serif;
+        margin: 0px;
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        left: 0;
+    }
+    .currency-converter {
+        max-width: 400px;
+        margin: 0 auto;
+        font-family: GTEestiPro, sans-serif;
+    }
+    .currency-converter h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        font-family: GTEestiPro, sans-serif;
+    }
+    .currency-converter label {
+        display: block;
+        margin-bottom: 15px; 
+        font-family: GTEestiPro, sans-serif;
+    }
+    .currency-converter input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 25px; 
+    }
+    .currency-converter button {
+        width: 100%;
+        padding: 10px;
+        background-color: #007BFF;
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-bottom: 20px; 
+        font-family: GTEestiPro, sans-serif;
+    }
+    .currency-converter button:hover {
+        background-color: #0056b3;
+    }
+    .currency-converter p {
+        margin-top: 30px; 
+    }
+</style>
+</head>
+<body>
+    <header>
+        <img src="ozon.png" style="width: 200px; height: 200;" alt="Логотип Банка ОЗОН">
+        <h1>Видео об OZON карте</h1>
+    </header>
+    <div class="currency-converter">
+    <h2>Калькулятор валют</h2>
+    <label for="rubles">Введите сумму в рублях:</label>
+    <input type="number" id="rubles" placeholder="Сумма в рублях">
+    <button onclick="convertToGBP()">Перевести в фунты</button>
+    <label for="gbp">Введите сумму в фунтах:</label>
+    <input type="number" id="gbp" placeholder="Сумма в GBP">
+    <button onclick="convertToRUB()">Перевести в рубли</button>
+    <p id="result"></p>
+    </div>
+
+<script>
+  // Функция для получения актуального курса GBP к RUB
+  async function getExchangeRate() {
+    const url = `https://www.cbr-xml-daily.ru/daily_json.js`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      return data.Valute.GBP.Value;
+    } catch (error) {
+      console.error('Ошибка:', error);
+      return null;
+    }
+  }
+
+  // Функция для конвертации рублей в GBP
+  async function convertToGBP() {
+    const rubles = document.getElementById('rubles').value;
+    const resultElement = document.getElementById('result');
+    const rate = await getExchangeRate();
+    if (rate) {
+      const convertedAmount = (rubles / rate).toFixed(2);
+      resultElement.textContent = `${rubles} рублей = ${convertedAmount} GBP`;
+    } else {
+      resultElement.textContent = 'Не удалось получить актуальный курс GBP.';
+    }
+  }
+
+  // Функция для конвертации GBP в рубли
+  async function convertToRUB() {
+    const gbp = document.getElementById('gbp').value;
+    const resultElement = document.getElementById('result');
+    const rate = await getExchangeRate();
+    if (rate) {
+      const convertedAmount = (gbp * rate).toFixed(2);
+      resultElement.textContent = `${gbp} GBP = ${convertedAmount} рублей`;
+    } else {
+      resultElement.textContent = 'Не удалось получить актуальный курс GBP.';
+    }
+  }
+</script>
+<main>
+    <div class="menu">
+        <ul>
+            <li><a href="../rgz/company.html">О компании</a></li>
+            <li><a href="../rgz/new.html">Новости</a></li>
+            <li><a href="../rgz/curs.html">Курс валют</a></li>
+            <li><a href="../rgz/contacs.html">Контактные данные</a></li>
+            <li><a href="../rgz/video.html">Видео</a></li>
+        </ul>
+    </div>
+</main>
+<footer>
+    &copy; OZON банк 2024г.
+</footer>
+</body>
+</html>

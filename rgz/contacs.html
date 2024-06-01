@@ -5,11 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="../rgz/favicon-16x16.png">
     <link rel="icon" href="../rgz/favicon-32x32.png">
-    <title>Видео о компании</title>
+    <title>Контакты компании</title>
     <style>
         body, html {
             height: 100%;
             margin: 0;
+            height: 1500px;
         }
         .menu {
             position: fixed;
@@ -20,8 +21,7 @@
             background-color: #03175c;
             color: #fff;
             font-family: GTEestiPro, sans-serif;
-        }
-        a{color:rgb(255, 255, 255);
+
         }
         .menu ul {
             list-style-type: none;
@@ -33,23 +33,13 @@
         }
         header {
             background-color: #2e51ff;
-            width: 1500px;
+            width: 1662px;
             margin-left: 200px;
             padding: 20px;
             color: rgb(255, 255, 255);
             font-family: GTEestiPro, sans-serif;
         }
-        .video-container {
-            margin-left: 1000px;
-            display: flex;
-            width: 516px;
-            justify-content: center;
-            align-items: center;
-            height: 50vh;
-            margin: auto;
-        }
-        footer
-        {
+        footer {
             background-color: rgb(172, 197, 245);
             color: rgb(11, 1, 58);
             font-family: GTEestiPro, sans-serif;
@@ -59,19 +49,34 @@
             right: 0;
             left: 0;
         }
-
+        main {
+            margin-left: 200px;
+            padding: 20px;
+            font-family: GTEestiPro, sans-serif;
+        }
+        .contact-info {
+            text-align: center;
+            margin-bottom: 20px;
+            font-family: GTEestiPro, sans-serif;
+            margin: 0 auto;
+        }
+        a{color:rgb(255, 255, 255);
+        }
+        section{
+            margin: 0 auto;
+        }
+        .map-container {
+            width: 100%;
+            height: 400px;
+        }
     </style>
 </head>
 <body>
     <header>
         <img src="ozon.png" style="width: 200px; height: 200;" alt="Логотип Банка ОЗОН">
-        <h1>Видео об OZON карте</h1>
+        <h1>Контактная информация</h1>
     </header>
-    
-    <main class="content">
-        <div class="video-container">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/c7dfYojClP0?si=XChcz81GJyPOl9-N" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>
+    <main>
         <div class="menu">
             <ul>
                 <li><a href="../rgz/company.html">О компании</a></li>
@@ -80,6 +85,19 @@
                 <li><a href="../rgz/contacs.html">Контактные данные</a></li>
                 <li><a href="../rgz/video.html">Видео</a></li>
             </ul>
+        </div>
+        <section class="contact-info">
+            <h2>Телефоны:</h2>
+            <p>+7 (123) 456-78-90</p>
+            <p>+7 (987) 654-32-10</p>
+        </section>
+        <section class="contact-info">
+            <h2>Адреса:</h2>
+            <p>Москва, ул. Ленина, д. 1</p>
+            <p>Санкт-Петербург, наб. реки Фонтанки, д. 10</p>
+        </section>
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1998.603799788993!2d30.32088561620949!3d59.938794181876254!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4696310fca5ba729%3A0xea9c53d4493c879f!2z0JHQvtC70YzRiNCw0Y8g0JrQvtC90Y7RiNC10L3QvdCw0Y8g0YPQuy4sIDEwMzUwMA!5e0!3m2!1sru!2sru!4v1676304755467!5m2!1sru!2sru" width="1680" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
     </main>
     <footer>
