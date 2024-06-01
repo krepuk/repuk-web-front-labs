@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новости компании</title>
+    <style>
+        .news-card {
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px;
+            background-color: #f9f9f9;
+        }
+        .news-title {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .news-date {
+            font-size: 14px;
+            color: #888;
+            margin-top: 10px;
+        }
+        .news-preview {
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .news-full-text {
+            display: none;
+            margin-top: 10px;
+        }
+        .show-more-btn {
+            display: block;
+            margin-top: 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Новости компании</h1>
+    </header>
+    <main>
+        <div class="news-card">
+            <div class="news-title">Запуск нового продукта</div>
+            <div class="news-date">2023-01-15</div>
+            <div class="news-preview">Компания анонсировала новый продукт, который обещает революционизировать рынок.</div>
+            <button class="show-more-btn">Показать полностью</button>
+            <div class="news-full-text">
+                <p>Компания успешно запустила новый продукт, который уже привлек внимание многих потребителей. Новое решение включает в себя...</p>
+            </div>
+        </div>
+        <div class="news-card">
+            <div class="news-title">Расширение на международном рынке</div>
+            <div class="news-date">2023-02-05</div>
+            <div class="news-preview">Компания начала работу в новых регионах, расширяя свое присутствие на международном уровне.</div>
+            <button class="show-more-btn">Показать полностью</button>
+            <div class="news-full-text">
+                <p>Успешное расширение компании на новые территории открывает новые возможности для роста и развития. Мы теперь работаем в...</p>
+            </div>
+        </div>
+        <!-- Добавьте остальные новости аналогичным образом -->
+        <div class="news-card">
+            <div class="news-title">Новые инвестиции</div>
+            <div class="news-date">2023-03-10</div>
+            <div class="news-preview">Компания получила крупные инвестиции, которые помогут в развитии новых проектов.</div>
+            <button class="show-more-btn">Показать полностью</button>
+            <div class="news-full-text">
+                <p>Инвестиции позволят нам ускорить разработку и внедрение новых технологий, а также расширить нашу команду...</p>
+            </div>
+        </div>
+        <div class="news-card">
+            <div class="news-title">Открытие нового офиса</div>
+            <div class="news-date">2023-04-15</div>
+            <div class="news-preview">Компания открыла новый офис в столице, чтобы лучше обслуживать клиентов в регионе.</div>
+            <button class="show-more-btn">Показать полностью</button>
+            <div class="news-full-text">
+                <p>Новый офис расположен в стратегически важном месте, что позволит нам быть ближе к нашим клиентам и партнерам...</p>
+            </div>
+        </div>
+        <div class="news-card">
+            <div class="news-title">Увеличение прибыли</div>
+            <div class="news-date">2023-05-20</div>
+            <div class="news-preview">Компания сообщила о значительном увеличении прибыли за последний квартал.</div>
+            <button class="show-more-btn">Показать полностью</button>
+            <div class="news-full-text">
+                <p>Спасибо эффективной работе наших сотрудников и стратегическим решениям, мы достигли рекордных показателей по прибыли...</p>
+            </div>
+        </div>
+        <div class="news-card">
+            <div class="news-title">Сотрудничество с новыми партнерами</div>
+            <div class="news-date">2023-06-25</div>
+            <div class="news-preview">Компания заключила соглашения с несколькими новыми партнерами, что расширяет наши возможности.</div>
+            <button class="show-more-btn">Показать полностью</button>
+            <div class="news-full-text">
+                <p>Сотрудничество с новыми партнерами откроет для нас новые горизонты и позволит предложить нашим клиентам еще больше...</p>
+            </div>
+        </div>
+        <div class="news-card">
+            <div class="news-title">Проведение масштабного мероприятия</div>
+            <div class="news-date">2023-07-30</div>
+            <div class="news-preview">Компания организовала крупное мероприятие, на которое приглашены все ключевые игроки отрасли.</div>
+            <button class="show-more-btn">Показать полностью</button>
+            <div class="news-full-text">
+                <p>Мероприятие прошло на высоком уровне, и мы получили много положительных отзывов от участников и гостей...</p>
+            </div>
+        </div>
+        <div class="news-card">
+            <div class="news-title">Выход на новый технологический уровень</div>
+            <div class="news-date">2023-08-05</div>
+            <div class="news-preview">Компания внедрила новые технологии, что значительно улучшило качество наших услуг.</div>
+            <button class="show-more-btn">Показать полностью</button>
+            <div class="news-full-text">
+                <p>Внедрение новых технологий стало возможным благодаря нашей команде разработчиков и инвесторам, которые верили в нашу миссию...</p>
+            </div>
+        </div>
+        <div class="news-card">
+            <div class="news-title">Открытие нового филиала</div>
+            <div class="news-date">2023-09-10</div>
+            <div class="news-preview">Компания открыла новый филиал в регионе, чтобы лучше обслуживать местных клиентов.</div>
+            <button class="show-more-btn">Показать полностью</button>
+            <div class="news-full-text">
+                <p>Новый филиал позволит нам быть ближе к нашим клиентам и быстро реагировать на их потребности. Мы рады предложить...</p>
+            </div>
+        </div>
+        <div class="news-card">
+            <div class="news-title">Заключение стратегического союза</div>
+            <div class="news-date">2023-10-15</div>
+            <div class="news-preview">Компания заключила стратегический союз с ведущей компанией отрасли, что откроет новые возможности.</div>
+            <button class="show-more-btn">Показать полностью</button>
+            <div class="news-full-text">
+                <p>Стратегический союз с ведущим игроком отрасли укрепит наши позиции на рынке и позволит нам предложить нашим клиентам...</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+        &copy; 2023 Компания. Все права защищены.
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const showMoreButtons = document.querySelectorAll('.show-more-btn');
+
+            showMoreButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const fullText = this.parentElement.querySelector('.news-full-text');
+                    if (fullText.style.display === 'none') {
+                        fullText.style.display = 'block';
+                        this.textContent = 'Скрыть';
+                    } else {
+                        fullText.style.display = 'none';
+                        this.textContent = 'Показать полностью';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
